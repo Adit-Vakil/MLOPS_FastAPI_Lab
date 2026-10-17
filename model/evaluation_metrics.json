@@ -1,0 +1,16 @@
+{
+    "model": "DecisionTreeClassifier",
+    "best_parameters": {
+        "criterion": "gini",
+        "max_depth": 3,
+        "min_samples_split": 2
+    },
+    "training_samples": 112,
+    "testing_samples": 38,
+    "metrics": {
+        "accuracy": 0.8947,
+        "precision_macro": 0.903,
+        "recall_macro": 0.8974,
+        "f1_macro": 0.8968
+    }
+}
