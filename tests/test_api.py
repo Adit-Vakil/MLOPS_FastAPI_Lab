@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -111,3 +113,30 @@ def test_batch_limit_enforced():
     response = client.post("/predict/batch", json={"samples": samples})
 
     assert response.status_code == 422
+
+
+def test_health_check_model_unavailable():
+    with patch("src.main.load_model", side_effect=FileNotFoundError):
+        response = client.get("/")
+
+    assert response.status_code == 503
+    assert response.json()["detail"] == "Prediction model is unavailable."
+
+
+def test_single_prediction_model_unavailable():
+    with patch("src.main.predict_data", side_effect=FileNotFoundError):
+        response = client.post("/predict", json=valid_iris())
+
+    assert response.status_code == 503
+    assert response.json()["detail"] == "Prediction model is unavailable."
+
+
+def test_batch_prediction_model_unavailable():
+    with patch("src.main.predict_data", side_effect=FileNotFoundError):
+        response = client.post(
+            "/predict/batch",
+            json={"samples": [valid_iris()]},
+        )
+
+    assert response.status_code == 503
+    assert response.json()["detail"] == "Prediction model is unavailable."

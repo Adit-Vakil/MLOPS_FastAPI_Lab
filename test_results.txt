@@ -1,50 +1,53 @@
 ============================= test session starts ==============================
-platform darwin -- Python 3.13.5, pytest-9.1.1, pluggy-1.7.0 -- /Users/aditvakil/Desktop/MLOPS_Lab1_FastAPI/venv/bin/python
+platform darwin -- Python 3.13.5, pytest-9.1.1, pluggy-1.7.0 -- /Users/aditvakil/Desktop/MLOPS_FastAPI_Lab/venv/bin/python
 cachedir: .pytest_cache
-rootdir: /Users/aditvakil/Desktop/MLOPS_Lab1_FastAPI
+rootdir: /Users/aditvakil/Desktop/MLOPS_FastAPI_Lab
 plugins: anyio-4.15.1
-collecting ... collected 31 items
+collecting ... collected 34 items
 
-tests/test_api.py::test_health_check PASSED                              [  3%]
-tests/test_api.py::test_single_prediction PASSED                         [  6%]
-tests/test_api.py::test_batch_prediction PASSED                          [  9%]
-tests/test_api.py::test_negative_measurements_rejected[sepal_length] PASSED [ 12%]
-tests/test_api.py::test_negative_measurements_rejected[sepal_width] PASSED [ 16%]
-tests/test_api.py::test_negative_measurements_rejected[petal_length] PASSED [ 19%]
-tests/test_api.py::test_negative_measurements_rejected[petal_width] PASSED [ 22%]
-tests/test_api.py::test_missing_field_rejected PASSED                    [ 25%]
-tests/test_api.py::test_excessive_measurement_rejected PASSED            [ 29%]
-tests/test_api.py::test_empty_batch_rejected PASSED                      [ 32%]
-tests/test_api.py::test_batch_limit_enforced PASSED                      [ 35%]
-tests/test_data.py::test_dataset_shape PASSED                            [ 38%]
-tests/test_data.py::test_dataset_contains_valid_values PASSED            [ 41%]
-tests/test_data.py::test_train_test_split_sizes PASSED                   [ 45%]
-tests/test_data.py::test_split_is_reproducible PASSED                    [ 48%]
-tests/test_data.py::test_stratification_preserves_classes PASSED         [ 51%]
-tests/test_data.py::test_invalid_test_size_rejected[0] PASSED            [ 54%]
-tests/test_data.py::test_invalid_test_size_rejected[1] PASSED            [ 58%]
-tests/test_data.py::test_invalid_test_size_rejected[-0.2] PASSED         [ 61%]
-tests/test_data.py::test_invalid_test_size_rejected[1.5] PASSED          [ 64%]
-tests/test_data.py::test_mismatched_features_and_labels_rejected PASSED  [ 67%]
-tests/test_train.py::test_model_is_decision_tree PASSED                  [ 70%]
-tests/test_train.py::test_model_has_been_fitted PASSED                   [ 74%]
-tests/test_train.py::test_hyperparameter_selection PASSED                [ 77%]
-tests/test_train.py::test_evaluation_metrics_exist PASSED                [ 80%]
-tests/test_train.py::test_evaluation_metrics_in_valid_range PASSED       [ 83%]
-tests/test_train.py::test_model_accuracy_above_baseline PASSED           [ 87%]
-tests/test_train.py::test_saved_model_exists PASSED                      [ 90%]
-tests/test_train.py::test_saved_model_can_predict PASSED                 [ 93%]
-tests/test_train.py::test_evaluation_report_exists PASSED                [ 96%]
+tests/test_api.py::test_health_check PASSED                              [  2%]
+tests/test_api.py::test_single_prediction PASSED                         [  5%]
+tests/test_api.py::test_batch_prediction PASSED                          [  8%]
+tests/test_api.py::test_negative_measurements_rejected[sepal_length] PASSED [ 11%]
+tests/test_api.py::test_negative_measurements_rejected[sepal_width] PASSED [ 14%]
+tests/test_api.py::test_negative_measurements_rejected[petal_length] PASSED [ 17%]
+tests/test_api.py::test_negative_measurements_rejected[petal_width] PASSED [ 20%]
+tests/test_api.py::test_missing_field_rejected PASSED                    [ 23%]
+tests/test_api.py::test_excessive_measurement_rejected PASSED            [ 26%]
+tests/test_api.py::test_empty_batch_rejected PASSED                      [ 29%]
+tests/test_api.py::test_batch_limit_enforced PASSED                      [ 32%]
+tests/test_api.py::test_health_check_model_unavailable PASSED            [ 35%]
+tests/test_api.py::test_single_prediction_model_unavailable PASSED       [ 38%]
+tests/test_api.py::test_batch_prediction_model_unavailable PASSED        [ 41%]
+tests/test_data.py::test_dataset_shape PASSED                            [ 44%]
+tests/test_data.py::test_dataset_contains_valid_values PASSED            [ 47%]
+tests/test_data.py::test_train_test_split_sizes PASSED                   [ 50%]
+tests/test_data.py::test_split_is_reproducible PASSED                    [ 52%]
+tests/test_data.py::test_stratification_preserves_classes PASSED         [ 55%]
+tests/test_data.py::test_invalid_test_size_rejected[0] PASSED            [ 58%]
+tests/test_data.py::test_invalid_test_size_rejected[1] PASSED            [ 61%]
+tests/test_data.py::test_invalid_test_size_rejected[-0.2] PASSED         [ 64%]
+tests/test_data.py::test_invalid_test_size_rejected[1.5] PASSED          [ 67%]
+tests/test_data.py::test_mismatched_features_and_labels_rejected PASSED  [ 70%]
+tests/test_train.py::test_model_is_decision_tree PASSED                  [ 73%]
+tests/test_train.py::test_model_has_been_fitted PASSED                   [ 76%]
+tests/test_train.py::test_hyperparameter_selection PASSED                [ 79%]
+tests/test_train.py::test_evaluation_metrics_exist PASSED                [ 82%]
+tests/test_train.py::test_evaluation_metrics_in_valid_range PASSED       [ 85%]
+tests/test_train.py::test_model_accuracy_above_baseline PASSED           [ 88%]
+tests/test_train.py::test_saved_model_exists PASSED                      [ 91%]
+tests/test_train.py::test_saved_model_can_predict PASSED                 [ 94%]
+tests/test_train.py::test_evaluation_report_exists PASSED                [ 97%]
 tests/test_train.py::test_evaluation_report_structure PASSED             [100%]
 
 =============================== warnings summary ===============================
 venv/lib/python3.13/site-packages/starlette/formparsers.py:12
-  /Users/aditvakil/Desktop/MLOPS_Lab1_FastAPI/venv/lib/python3.13/site-packages/starlette/formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+  /Users/aditvakil/Desktop/MLOPS_FastAPI_Lab/venv/lib/python3.13/site-packages/starlette/formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
     import multipart
 
 venv/lib/python3.13/site-packages/starlette/testclient.py:41
-  /Users/aditvakil/Desktop/MLOPS_Lab1_FastAPI/venv/lib/python3.13/site-packages/starlette/testclient.py:41: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+  /Users/aditvakil/Desktop/MLOPS_FastAPI_Lab/venv/lib/python3.13/site-packages/starlette/testclient.py:41: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
     [], typing.ContextManager[anyio.abc.BlockingPortal]
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 31 passed, 2 warnings in 1.97s ========================
+======================== 34 passed, 2 warnings in 1.75s ========================

@@ -1,6 +1,7 @@
+from typing import List
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from typing import List
 
 from .predict import predict_data, load_model
 
@@ -67,6 +68,11 @@ def predict_iris(iris: IrisData):
     try:
         result = predict_data(features)[0]
         return IrisResponse(**result)
+    except (FileNotFoundError, OSError):
+        raise HTTPException(
+            status_code=503,
+            detail="Prediction model is unavailable.",
+        )
     except Exception:
         raise HTTPException(
             status_code=500,
@@ -96,6 +102,11 @@ def predict_batch(request: BatchRequest):
         return BatchResponse(
             predictions=[IrisResponse(**item) for item in predictions],
             total_predictions=len(predictions),
+        )
+    except (FileNotFoundError, OSError):
+        raise HTTPException(
+            status_code=503,
+            detail="Prediction model is unavailable.",
         )
     except Exception:
         raise HTTPException(
